@@ -1,0 +1,61 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows10.0.19041.0</TargetFramework>
+    <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
+    <UseWinUI>true</UseWinUI>
+    <WinUISDKReferences>false</WinUISDKReferences>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <RootNamespace>WidBar.DailyVerse.ExtensionApp</RootNamespace>
+    <AssemblyName>WidBar.DailyVerse.ExtensionApp</AssemblyName>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <Platforms>x64</Platforms>
+    <PlatformTarget>x64</PlatformTarget>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <SelfContained>true</SelfContained>
+    <WindowsAppSDKSelfContained>false</WindowsAppSDKSelfContained>
+    <WindowsPackageType>MSIX</WindowsPackageType>
+    <EnableMsixTooling>true</EnableMsixTooling>
+    <GenerateAppxPackageOnBuild>false</GenerateAppxPackageOnBuild>
+    <DefineConstants>$(DefineConstants);DISABLE_XAML_GENERATED_MAIN</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <WidBarPluginId>com.widbar.dailyverse</WidBarPluginId>
+    <WidBarPluginName>Versículo Diário</WidBarPluginName>
+    <WidBarPluginDescription>Mostra diariamente um versículo bíblico aleatório direto na barra de tarefas.</WidBarPluginDescription>
+    <WidBarPluginCategory>Information</WidBarPluginCategory>
+    <WidBarPluginVersion>1.0.0</WidBarPluginVersion>
+    <WidBarPluginMinHostVersion>1.0.0</WidBarPluginMinHostVersion>
+    <WidBarPluginPreviewWidth>300</WidBarPluginPreviewWidth>
+    <WidBarPluginConfigurable>true</WidBarPluginConfigurable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Manifest Include="$(ApplicationManifest)" />
+    <AppxManifest Include="Package\AppxManifest.xml">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+    <Content Include="Package\Images\*.png">
+      <Link>Images\%(Filename)%(Extension)</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildProjectDirectory)\obj\widbar\plugin.json" Condition="Exists('$(MSBuildProjectDirectory)\obj\widbar\plugin.json')">
+      <Link>Public\plugin.json</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WidBar.DailyVerse.Core\WidBar.DailyVerse.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.WindowsAppSDK" Version="2.6.4" />
+    <PackageReference Include="WidBar.SDK" Version="2.3.0" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,28 @@
+# Build & MSIX staging outputs
+bin/
+obj/
+dist-layout/
+AppPackages/
+*.appx
+*.msix
+*.msixbundle
+*.msixupload
+*.appxsym
+*.cer
+*.pfx
+
+# Visual Studio / Rider / VS Code
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+.vscode/
+
+# Test results & temp files
+TestResults/
+*.trx
+*.coverage
+*.tmp
+Thumbs.db
+Desktop.ini
