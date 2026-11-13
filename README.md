@@ -2,6 +2,19 @@
 
 Widget nativo do Windows 11 para o **[WidBar](https://github.com/andelby/widbar)** (`WidBar.SDK` 2.3 + WinUI 3 + .NET 8) que exibe diariamente um versículo bíblico aleatório direto na barra de tarefas.
 
+## Capturas de tela
+
+### Na barra de tarefas
+![Widget na barra de tarefas do Windows 11](docs/screenshots/taskbar-full.png)
+
+![Detalhe do widget em modo compacto](docs/screenshots/taskbar-compact.png)
+
+### Flyout (versículo, capítulo e favoritos)
+![Flyout do Versículo Diário](docs/screenshots/flyout.png)
+
+### Configurações com prévia ao vivo
+![Configurações do widget](docs/screenshots/settings.jpg)
+
 ## Recursos
 
 - **Troca diária automática**: sorteia um novo versículo aleatório por dia (na virada da meia-noite ou ao voltar da suspensão) e mantém o mesmo durante todo o dia, com histórico anti-repetição de até 365 versículos persistido em `SharedDataDirectory`.
